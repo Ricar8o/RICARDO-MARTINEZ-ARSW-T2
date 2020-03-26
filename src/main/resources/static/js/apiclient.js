@@ -15,5 +15,11 @@ var apiclient = (function () {
 				callback(null, CountryStat)
 			});
         },
+
+        getProvinceStats: function(country, callback) {
+			$.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' + country+'/provinces', function(CountryStat){
+				callback(null, CountryStat)
+			});
+        },
     }
 })();

@@ -44,4 +44,13 @@ public class CoronavirusAPIController {
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
         }        
     }
+    @RequestMapping(path ="/{country}/provinces",method = RequestMethod.GET)
+    public ResponseEntity<?> GetCountryProvincesStats(@PathVariable ("country") String country){
+        try {
+            return new ResponseEntity<>(css.getCountryProvinces(country),HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(CoronavirusAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
+        }        
+    }
 }
