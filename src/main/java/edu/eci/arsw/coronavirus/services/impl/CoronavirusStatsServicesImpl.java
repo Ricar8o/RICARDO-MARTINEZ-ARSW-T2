@@ -1,7 +1,6 @@
 package edu.eci.arsw.coronavirus.services.impl;
 
-import java.util.HashMap;
-
+import java.util.ArrayList;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +23,37 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
     HTTPConnectionService hcs;
     @Autowired
     CoronavirusStatsCache csc;
+    
 
     @Override
-    public HashMap<String, CountryStat> getAllStadistics() throws UnirestException {
-        System.out.println(hcs.getAllStats());
-        return null;
+    public ArrayList<CountryStat> getAllStadistics() throws UnirestException {
+        JSONObject obj = new JSONObject(hcs.getAllStats()).getJSONObject("data");
+        JSONArray array = obj.getJSONArray("covid19Stats");
+        ArrayList<CountryStat> estadisticas = new ArrayList<CountryStat>();
+        for(int i = 0; i<array.length();i++){
+            JSONObject json = array.getJSONObject(i);
+            String country = json.getString("country");
+            CountryStat countrystat = getCountryStadistics(country);
+            estadisticas.add(countrystat);
+        }
+        return estadisticas;
     }
 
     @Override
     public CountryStat getCountryStadistics(String country) throws UnirestException {
         //System.out.println(hcs.getCountryStats(country));
-        JSONObject obj = new JSONObject(hcs.getCountryStats(country)).getJSONObject("data");
-        JSONArray array = obj.getJSONArray("covid19Stats");
+        CountryStat cs =csc.getEstadisticas(country);
+        if (cs==null){
+            JSONObject obj = new JSONObject(hcs.getCountryStats(country)).getJSONObject("data");
+            JSONArray array = obj.getJSONArray("covid19Stats");
+            cs = getCountryStat(array,country);
+            csc.setData(country, cs);
+        }
+        
+        return cs;
+    }
+
+    private CountryStat getCountryStat(JSONArray array,String country){
         int deaths = 0;
         int infected =0;
         int cured = 0;
@@ -46,8 +64,7 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
             cured += json.getInt("recovered");
         }
         CountryStat cs = new CountryStat(country,deaths,infected,cured);
-        System.out.println(cs);
         return cs;
     }
-    
+
 }
