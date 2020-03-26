@@ -12,7 +12,7 @@ import edu.eci.arsw.coronavirus.model.CountryStat;
 public interface CoronavirusStatsServices {
 
 	public HashMap<String, CountryStat> getAllStadistics() throws UnirestException;
+	public CountryStat getCountryStadistics(String country) throws UnirestException;
 
-	public CountryStat getStadisticsCountry(String country);
 
 }

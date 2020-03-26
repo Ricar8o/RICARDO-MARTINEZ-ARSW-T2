@@ -39,7 +39,7 @@ public class CoronavirusAPIController {
     @RequestMapping(path ="/{country}",method = RequestMethod.GET)
     public ResponseEntity<?> GetStatsCountry(@PathVariable ("country") String country){
         try {
-            return new ResponseEntity<>(css.getStadisticsCountry(country),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(css.getCountryStadistics(country),HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(CoronavirusAPIController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
