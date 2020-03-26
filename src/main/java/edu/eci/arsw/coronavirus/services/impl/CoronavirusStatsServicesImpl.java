@@ -56,14 +56,27 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
         int deaths = 0;
         int infected =0;
         int cured = 0;
+        ArrayList<CountryStat> provincias = new ArrayList<CountryStat>();
         for(int i = 0; i<array.length();i++){
             JSONObject json = array.getJSONObject(i);
-            deaths += json.getInt("deaths");
-            infected +=json.getInt("confirmed");
-            cured += json.getInt("recovered");
+            int dea = json.getInt("deaths");
+            int inf=json.getInt("confirmed");
+            int cur= json.getInt("recovered");
+            String province = json.getString("province");
+            
+            deaths += dea;
+            infected +=inf;
+            cured += cur;
+            CountryStat provinceStat = new CountryStat(province,dea,inf,cur);
+            provincias.add(provinceStat);
         }
-        CountryStat cs = new CountryStat(country,deaths,infected,cured);
+        CountryStat cs = new CountryStat(country,deaths,infected,cured,provincias);
         return cs;
     }
+
+    public ArrayList<CountryStat> getCountryProvinces(String country) throws UnirestException{
+        CountryStat cs =getCountryStadistics(country);
+        return cs.getProvinces();
+    };
 
 }

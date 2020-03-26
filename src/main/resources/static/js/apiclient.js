@@ -1,13 +1,12 @@
 var apiclient = (function () {
     return {
-
-
-
-
-
         getAllStats: function(callback) {   
+
+
+
+
             $.get('http://localhost:8080/coronavirusStats/' , function(CountryStats){
-                callback(null, CountryStats)
+                callback(CountryStats)
             });
         },
 

@@ -1,0 +1,39 @@
+form{
+    margin: 20px 0;
+}
+form input, button{
+    padding: 5px;
+}
+table{
+    width: 70%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+table, th, td{
+    border: 1px solid #cdcdcd;
+}
+table th, table td{
+    padding: 10px;
+    text-align: center;
+}
+.columna1 {
+    width:48%;
+    float:left;
+}
+.columna2 {
+    width:48%;
+    float:right;
+}
+.content div {
+    padding: 10px;
+}
+h1{
+    text-align: center;
+    margin: 30px;
+    border: black 2px solid;
+    padding: 15px;
+}

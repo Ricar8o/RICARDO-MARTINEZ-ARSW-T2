@@ -13,6 +13,7 @@ public interface CoronavirusStatsServices {
 
 	public ArrayList<CountryStat> getAllStadistics() throws UnirestException;
 	public CountryStat getCountryStadistics(String country) throws UnirestException;
+	public ArrayList<CountryStat> getCountryProvinces(String country) throws UnirestException;
 
 
 }
