@@ -12,13 +12,13 @@ var apiclient = (function () {
 
         getCountryStats: function(country, callback) {
 			$.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' + country, function(CountryStat){
-				callback(null, CountryStat)
+				callback(CountryStat)
 			});
         },
 
         getProvinceStats: function(country, callback) {
 			$.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' + country+'/provinces', function(CountryStat){
-				callback(null, CountryStat)
+				callback(CountryStat)
 			});
         },
     }
