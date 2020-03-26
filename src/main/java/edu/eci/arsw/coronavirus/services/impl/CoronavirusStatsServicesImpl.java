@@ -2,6 +2,8 @@ package edu.eci.arsw.coronavirus.services.impl;
 
 import java.util.HashMap;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,9 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
     @Autowired
     CoronavirusStatsCache csc;
 
-
     @Override
-    public HashMap<String, CountryStat>getAllStadistics() {
+    public HashMap<String, CountryStat> getAllStadistics() throws UnirestException {
+        System.out.println(hcs.getAllStats());
         return null;
     }
 

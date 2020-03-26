@@ -22,13 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author hcadavid
  */
 @RestController
-@RequestMapping(value = "/coronavirusTest")
+@RequestMapping(value = "/coronavirusStats")
 public class CoronavirusAPIController {
     @Autowired
     CoronavirusStatsServices css = null;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> GetAllBlueprintFilter() {
+    public ResponseEntity<?> GetAllStats() {
         try {
             return new ResponseEntity<>(css.getAllStadistics(), HttpStatus.ACCEPTED);
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class CoronavirusAPIController {
         }
     }
     @RequestMapping(path ="/{country}",method = RequestMethod.GET)
-    public ResponseEntity<?> GetBlueprintByAuthorAndName(@PathVariable ("country") String country){
+    public ResponseEntity<?> GetStatsCountry(@PathVariable ("country") String country){
         try {
             return new ResponseEntity<>(css.getStadisticsCountry(country),HttpStatus.ACCEPTED);
         } catch (Exception ex) {
