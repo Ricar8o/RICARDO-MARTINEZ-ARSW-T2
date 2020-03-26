@@ -5,13 +5,13 @@ var apiclient = (function () {
 
 
 
-            $.get('http://localhost:8080/coronavirusStats/' , function(CountryStats){
+            $.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' , function(CountryStats){
                 callback(CountryStats)
             });
         },
 
         getCountryStats: function(country, callback) {
-			$.get('http://localhost:8080/coronavirusStats/' + country, function(CountryStat){
+			$.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' + country, function(CountryStat){
 				callback(null, CountryStat)
 			});
         },
