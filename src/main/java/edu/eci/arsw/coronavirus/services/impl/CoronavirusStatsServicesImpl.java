@@ -29,13 +29,12 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
     public ArrayList<CountryStat> getAllStadistics() throws UnirestException {
         JSONObject obj = new JSONObject(hcs.getAllStats()).getJSONObject("data");
         JSONArray array = obj.getJSONArray("covid19Stats");
-        ArrayList<CountryStat> estadisticas = new ArrayList<CountryStat>();
         for(int i = 0; i<array.length();i++){
             JSONObject json = array.getJSONObject(i);
             String country = json.getString("country");
             CountryStat countrystat = getCountryStadistics(country);
-            estadisticas.add(countrystat);
         }
+        ArrayList<CountryStat> estadisticas = csc.getList();;
         return estadisticas;
     }
 

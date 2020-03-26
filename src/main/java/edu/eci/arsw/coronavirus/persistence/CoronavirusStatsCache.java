@@ -1,5 +1,6 @@
 package edu.eci.arsw.coronavirus.persistence;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
@@ -29,6 +30,14 @@ public class CoronavirusStatsCache {
     public HashMap<String, CountryStat> getEstadisticas(){
         return this.estadisticas;
     }
+
+	public ArrayList<CountryStat> getList() {
+        ArrayList<CountryStat> lista = new ArrayList<CountryStat>();
+        for(CountryStat coun: estadisticas.values()){
+            lista.add(coun);
+        }
+		return lista;
+	}
     
 
 }
