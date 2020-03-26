@@ -9,7 +9,7 @@ var app = (function () {
           );
         }
 
-    var loadTable = function(stats) {
+    var loadTable2 = function(stats) {
         $("#ProvStats").append(
         stats.map(function(stat){
             return "<tr><td>" + stat.country + "</td><td>" + stat.deaths + "</td><td>" +stat.infected + "</td><td>" + stat.cured 
@@ -18,7 +18,7 @@ var app = (function () {
     }
     var iniciar = function(){
         apiclient.getAllStats(loadTable);
-        apiclient.getProvinceStats("Canada",loadTable2)
+        apiclient.getProvinceStats("Canada",loadTable2);
     }
 
     return{
