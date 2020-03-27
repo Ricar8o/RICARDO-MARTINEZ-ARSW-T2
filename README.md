@@ -4,7 +4,7 @@
 ## Estructura
 Carpetas
 
-![](img/tree.png)
+![](img/tree.PNG)
 
 ## Ejecución de manera local
 
@@ -17,10 +17,10 @@ Despues entrar desde cualquier navegador con la url:
 
     localhost:8080
 
-![](img/localhost.png)
+![](img/localhost.PNG)
 
 Al hacer click en la fila de una tabla se muestra una tabla con las provincias del pais.
-![](img/click.png)
+![](img/click.PNG)
 
 ##Extender
 
