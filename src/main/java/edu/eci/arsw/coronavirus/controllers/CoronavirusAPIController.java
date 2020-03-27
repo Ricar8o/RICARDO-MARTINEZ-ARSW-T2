@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author hcadavid
+ * @author Ricardo Martinez
  */
 @RestController
 @RequestMapping(value = "/coronavirusStats")

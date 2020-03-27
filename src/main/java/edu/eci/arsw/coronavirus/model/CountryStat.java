@@ -2,6 +2,9 @@ package edu.eci.arsw.coronavirus.model;
 
 import java.util.ArrayList;
 
+/** 
+ * @author Ricardo Martinez
+ */
 public class CountryStat {
 
     String country;
@@ -13,12 +16,27 @@ public class CountryStat {
     public CountryStat() {
 
     }
+    /**
+     * 
+     * @param country
+     * @param deaths
+     * @param infected
+     * @param cured
+     */
     public CountryStat(String country, int deaths, int infected ,int cured){
         this.country = country;
         this.deaths = deaths;
         this.infected = infected;
         this.cured = cured;
     }
+    /**
+     * Contructor para paises con provincias registradas.
+     * @param country
+     * @param deaths
+     * @param infected
+     * @param cured
+     * @param provincias
+     */
     public CountryStat(String country, int deaths, int infected ,int cured, ArrayList<CountryStat> provincias){
         this.country = country;
         this.deaths = deaths;

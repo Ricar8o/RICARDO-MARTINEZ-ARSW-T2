@@ -51,7 +51,12 @@ public class CoronavirusStatsServicesImpl implements CoronavirusStatsServices {
         
         return cs;
     }
-
+    /**
+     * Metodo que convierte los datos de un json en las estadisticas de un pais
+     * @param array Un arreglo de json con informacion de un pais.
+     * @param country Nombre del pais.
+     * @return Las estadistacas de un pais.
+     */
     private CountryStat getCountryStat(JSONArray array,String country){
         int deaths = 0;
         int infected =0;
