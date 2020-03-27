@@ -47,10 +47,12 @@ h1{
 div{
     text-align: center;
 }
-input{
+output{
     width: 1300px;
     margin-top: 30px;
     height: 50px;
     font-size: medium;
     border: black 2px solid;
+    margin: 0 auto;
+
 }
