@@ -1,10 +1,6 @@
 var apiclient = (function () {
     return {
         getAllStats: function(callback) {   
-
-
-
-
             $.get('https://ricardo-martinez-arsw-t2.herokuapp.com/coronavirusStats/' , function(CountryStats){
                 callback(CountryStats)
             });
